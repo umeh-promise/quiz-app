@@ -37,7 +37,7 @@ class QuestionsSummary extends StatelessWidget {
                       ),
 
                       child: Text(
-                        ((data['id'] as int) + 1).toString(),
+                        (data['id']).toString(),
                         style: TextStyle(
                           color: const Color.fromARGB(255, 0, 0, 0),
                           fontSize: 18,

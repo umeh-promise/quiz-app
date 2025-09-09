@@ -16,12 +16,12 @@ class Quiz extends StatefulWidget {
 enum ActiveQuizScreen { startScreen, questionsScreen, resultsScreen }
 
 class _QuizState extends State<Quiz> {
-  List<String> selectedAnswers = [];
-  ActiveQuizScreen activeScreen = ActiveQuizScreen.startScreen;
+  final List<String> selectedAnswers = [];
+  ActiveQuizScreen _activeScreen = ActiveQuizScreen.startScreen;
 
   void switchScreen() {
     setState(() {
-      activeScreen = ActiveQuizScreen.questionsScreen;
+      _activeScreen = ActiveQuizScreen.questionsScreen;
     });
   }
 
@@ -29,15 +29,15 @@ class _QuizState extends State<Quiz> {
     selectedAnswers.add(answer);
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        activeScreen = ActiveQuizScreen.resultsScreen;
+        _activeScreen = ActiveQuizScreen.resultsScreen;
       });
     }
   }
 
   void restartQuiz() {
     setState(() {
-      selectedAnswers = [];
-      activeScreen = ActiveQuizScreen.questionsScreen;
+      selectedAnswers.clear();
+      _activeScreen = ActiveQuizScreen.questionsScreen;
     });
   }
 
@@ -45,7 +45,7 @@ class _QuizState extends State<Quiz> {
   Widget build(BuildContext context) {
     Widget? screenWidget;
 
-    switch (activeScreen) {
+    switch (_activeScreen) {
       case ActiveQuizScreen.questionsScreen:
         screenWidget = QuestionsScreen(onSelectAnswer: chooseAnswer);
       case ActiveQuizScreen.resultsScreen:

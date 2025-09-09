@@ -17,7 +17,7 @@ class ResultsScreen extends StatelessWidget {
 
     for (int idx = 0; idx < chosenAnswers.length; idx++) {
       summary.add({
-        'id': idx,
+        'id': idx + 1,
         'question': questions[idx].question,
         'correct_answer': questions[idx].answers[0],
         'selected_answer': chosenAnswers[idx],
