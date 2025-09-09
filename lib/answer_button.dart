@@ -15,12 +15,13 @@ class AnswerButton extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
       ),
-      child: Text(
-        answerText,
-        style: TextStyle(
-          fontSize: 14,
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+        child: Text(
+          answerText,
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+          textAlign: TextAlign.center,
         ),
-        textAlign: TextAlign.center,
       ),
     );
   }
